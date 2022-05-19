@@ -89,7 +89,78 @@ ul
 	{margin-bottom:0in;}
 -->
 .imyself{
-    border-radius:50%;
+    border:50%;
+}
+footer {
+    height: 180px;
+    width: 100%;
+    margin-top: 0px;
+    border-top: 1px solid #565C63;
+    border-bottom: 1px solid #565C63;
+    background: #336699;
+}
+
+.Galaxy {
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+/*
+.moment span{
+	margin: 0;
+	padding: 0;
+	display: block;
+}*/
+
+.moment {
+	width: 200px;
+	margin-left: 5px;
+}
+
+.moment span{
+	width: 100%
+}
+
+.moment {
+	float: left
+}
+
+@font-face {
+	font-family: "ROG FONT";
+	src: url("./index_files/ROGFonts-Regular.otf");
+}
+
+.Information {
+	font-family: "ROG FONT";
+}
+
+.Bio {
+	margin:1px auto;
+	overflow: hidden;
+}
+.HOU {
+	float:left
+}
+.Information {
+	float:right
+}
+@font-face {
+	font-family: "SIMKAI";
+	src: url("./index_files/simkai.ttf");
+}
+.zh {
+	font-family: "SIMKAI";
+}
+@font-face {
+	font-family: "BIZ";
+	src: url("./index_files/BIZ-UDMinchoM.ttc");
+}
+.zh {
+	font-family: "BIZ";
+}
+
+.item {
+	background-color: #FFCC00;
 }
 
 
@@ -99,15 +170,28 @@ ul
 
 <body lang=EN-US style='word-wrap:break-word'>
 
-<div class=WordSection1>
+<div class="Bio">
 
-<p class=MsoNormal><img width=418 height=88 src="./index_files/logo.png"
-align=right hspace=12 vspace=5
-alt="HOU&#13;&#10;Chengze&#13;&#10;Student of Earth and Planetary Science&#13;&#10;&#13;&#10;"><img class="imyself"
+<div class="HOU">
+<p class=MsoNormal><img class="imyself"
 width=186 height=220 id="Picture 1" src="./index_files/imyself.jpg"
 alt="A picture containing person, person, hairpiece&#10;&#10;Description automatically generated"></p>
+</div>
+<div class="Information">
+	<div class="en">
+		<p>HOU Chengze</p>
+	</div>
+	<div class="zh">
+		<p>侯 成泽</p>
+	</div>
+	<div class="jp">
+		<p>ホウ　チュヨンゾア</p>
+	</div>
+</div>
 
-<p class=MsoNormal><span style='font-family:Cavolini'>Education</span></p>
+</div>
+
+<div class="item"><p class=MsoNormal><span style='font-family:Cavolini'>Education</span></p></div>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
 style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -134,7 +218,7 @@ style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&n
 style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
 </span></span><span style='font-family:Cavolini'>Earth and Planetary</span></p>
 
-<p class=MsoNormal><span style='font-family:Cavolini'>Work</span></p>
+<div class="item"><p class=MsoNormal><span style='font-family:Cavolini'>Work</span></p></div>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
 style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -157,14 +241,14 @@ style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&n
 style='font-family:Cavolini'>, National Supercomputing Center In Zhengzhou
 (NSCC-ZZ), Heterogeneous programming of CPU and DCU. </span></p>
 
-<p class=MsoNormal><span style='font-family:Cavolini'>Publications &amp; Paper
-&amp; Program</span></p>
+<div class="item"><p class=MsoNormal><span style='font-family:Cavolini'>Publications &amp; Paper
+&amp; Program</span></p></div>
 
 <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-family:
 Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><span style='font-family:Cavolini'>None</span></p>
 
-<p class=MsoNormal><span style='font-family:Cavolini'>Interests</span></p>
+<div class="item"><p class=MsoNormal><span style='font-family:Cavolini'>Interests</span></p></div></div>
 
 <p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
 style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -179,46 +263,69 @@ style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&n
 </span></span><span style='font-family:Cavolini'>Computer system and
 architecture</span></p>
 
-<p class=MsoNormal><span style='font-family:Cavolini'>Galax</span></p>
 
-<img src="./index_files/JAL_4_10.jpg" height="300" width="500">
+<div class="Galaxy">
+	<div class="item"><p class=MsoNormal><span style='font-family:Cavolini'>Galax</span></p></div>
+
+
+<div class="moment">
+	<img src="./index_files/galaxy/My Computer.jpg" height="150" width="200">
+	<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+	style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span><span style='font-family:Cavolini'>My Computer</span></p>
+</div>
+
+<div class="moment">
+<img src="./index_files/galaxy/JAL_4_10.jpg" height="150" width="200">
 <p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
 style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><span style='font-family:Cavolini'>2022-4-10, on my way to Japan</span></p>
+</div>
 
-
-<img src="./index_files/My University.jpg" height="300" width="500">
+<div class="moment">
+<img src="./index_files/galaxy/My University.jpg" height="150" width="200">
 <p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
 style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </span></span><span style='font-family:Cavolini'>My University</span></p>
+</div>
 
-
-<p class=MsoNormal><span style='font-family:Cavolini'>Contact Info</span></p>
-
-<p class=MsoFooter style='margin-left:.5in;text-indent:-.25in'><span
+<div class="moment">
+<img src="./index_files/galaxy/肉超级多的拉面!.jpg" height="150" width="200">
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
 style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><b><span lang=JA style='font-family:"Yu Gothic UI",sans-serif'>〒</span></b><b><span
-style='font-family:Cavolini'>227-8561</span></b><b><span lang=JA
-style='font-family:"Yu Gothic UI",sans-serif'>　千葉県柏市柏の葉</span></b><b><span
-style='font-family:Cavolini'>5-1-5 </span></b><b><span lang=JA
-style='font-family:"Yu Gothic UI",sans-serif'>柏キャンパス</span></b><b><span
-lang=JA style='font-family:Cavolini'> </span></b><b><span lang=JA
-style='font-family:"Yu Gothic UI",sans-serif'>基盤棟</span></b></p>
+</span></span><span style='font-family:Cavolini'>My birthday in Tokyo, おいしい</span></p>
+</div>
 
-<p class=MsoFooter style='margin-left:.5in;text-indent:-.25in'><span
-style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><b><span style='font-family:Cavolini'>h_chengze@hhhou.dev</span></b><b><span
-style='font-family:Cavolini'><w:PTab Alignment="RIGHT" RelativeTo="MARGIN"
- Leader="NONE"></w:PTab></span></b></p>
 
-<p class=MsoNormal><span style='font-family:Cavolini'>&nbsp;</span></p>
-
-<p class=MsoNormal><span style='font-family:Cavolini'>&nbsp;</span></p>
-
-<p class=MsoNormal>&nbsp;</p>
 
 </div>
 
 </body>
+
+<footer>
+	<p class=MsoNormal><span style='font-family:Cavolini'><br>&nbsp;Contact Info</span></p>
+	
+	<p class=MsoFooter style='margin-left:.5in;text-indent:-.25in'><span
+	style='font-family:Cavolini'>ADDRESS:<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span><b><span lang=JA style='font-family:"Yu Gothic UI",sans-serif'>〒</span></b><b><span
+	style='font-family:Cavolini'>227-8561</span></b><b><span lang=JA
+	style='font-family:"Yu Gothic UI",sans-serif'>　千葉県柏市柏の葉</span></b><b><span
+	style='font-family:Cavolini'>5-1-5 </span></b><b><span lang=JA
+	style='font-family:"Yu Gothic UI",sans-serif'>柏キャンパス</span></b><b><span
+	lang=JA style='font-family:Cavolini'> </span></b><b><span lang=JA
+	style='font-family:"Yu Gothic UI",sans-serif'>基盤棟</span></b><span
+	style='font-family:Cavolini'><br>EMAIL:<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span><b><span style='font-family:Cavolini'>h_chengze@hhhou.dev</span></b><b><span
+	style='font-family:Cavolini'><w:PTab Alignment="RIGHT" RelativeTo="MARGIN"
+	 Leader="NONE"></w:PTab></span></b></p>
+	
+	<p class=MsoFooter style='margin-left:.5in;text-indent:-.25in'></p>
+	
+	<p class=MsoNormal><span style='font-family:Cavolini'>&nbsp;</span></p>
+	
+	<p class=MsoNormal><span style='font-family:Cavolini'>&nbsp;</span></p>
+	
+	<p class=MsoNormal>&nbsp;</p>
+</footer>
 
 </html>
