@@ -1,207 +1,291 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="ja">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="generator" content="Adobe GoLive">
+    <meta charset="UTF-8">
+    <title>どら侯</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'ROGFont';
+            src: url('./index_files/ROGFonts-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-    <title>HOU Chengze Home Page</title>
-    <link href="./index_files/basic.css" type="text/css" rel="stylesheet" media="all">
-    <style type="text/css" media="screen">
-        <!--
-        .padbcont_1D62F10 {
+        @font-face {
+            font-family: 'Monaco';
+            src: url('./index_files/Monaco.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+            width: 100vw;
+            overflow-x: hidden;
+            font-family: 'Monaco';
+        }
+
+        .clip-container {
             width: 100%;
-            height: 100px
+            height: 65vmin;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+            padding-left: calc(25vmin + 4vmin);
+            /* nav 宽度 + padding */
+            box-sizing: border-box;
         }
 
-        .padbox_1D62F10 {
-            font-size: large;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            background-color: #c4dc69;
-            width: auto;
-            height: auto;
-            padding: 20px
+
+
+        .head {
+            position: relative;
+            width: 60vmin;
+            height: 60vmin;
+            background: #00A0E9;
+            border: 0.8vmin solid black;
+            border-radius: 50% / 45%;
         }
 
-        .padbcont_6F59F66 {
-            width: 100%;
-            height: auto;
+        .face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48vmin;
+            height: 26vmin;
+            background: white;
+            border-radius: 50% / 45%;
+            border: 0.8vmin solid black;
         }
 
-        .padbox_6F59F66 {
-            background-color: #5582fe;
-            width: auto;
-            height: auto;
-            padding: 1px
+        .eye {
+            position: absolute;
+            width: 8vmin;
+            height: 11vmin;
+            background: white;
+            border: 0.6vmin solid black;
+            border-radius: 50%;
+            top: -6vmin;
+            z-index: 2;
         }
 
-        .padbcont_32F624 {
-            width: 100%;
+        .eye.left {
+            left: 50%;
+            transform: translateX(-98%);
         }
 
-        .padbox_32F624 {
-            width: auto;
-            height: auto;
-            padding: 5px;
+        .eye.right {
+            left: 50%;
+            transform: translateX(-2%);
         }
 
-        .padbcont_8F4924 {
-            width: 100%;
-            height: auto;
+        .pupil.left,
+        .pupil.right {
+            position: absolute;
+            width: 2vmin;
+            height: 2vmin;
+            background: black;
+            border-radius: 50%;
+            top: 6vmin;
+            z-index: 3;
         }
 
-        .padbox_8F4924 {
-            width: auto;
-            height: auto;
-            padding: 1px;
+        .pupil.left {
+            left: 65%;
+            transform: translateX(-50%);
         }
 
-        .clearboth {
-            clear: both;
+        .pupil.right {
+            left: 35%;
+            transform: translateX(-50%);
         }
-        -->
-    </style>
 
-    <!-- #BeginHeadLocked "" -->
-    <style type="text/css" media="screen">
-        <!--
-        .navboxcont_FF8117 {
-            width: 100%;
-            height: auto;
-            position: absolute
+        .nose {
+            position: absolute;
+            width: 5vmin;
+            height: 5vmin;
+            background: red;
+            border-radius: 50%;
+            border: 0.4vmin solid black;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
         }
+
+        .whisker1,
+        .whisker2,
+        .whisker3 {
+            position: absolute;
+            height: 0.5vmin;
+            background: black;
+        }
+
+        .whisker1 {
+            width: 12vmin;
+        }
+
+        .whisker2 {
+            width: 14vmin;
+        }
+
+        .whisker3 {
+            width: 13vmin;
+        }
+
+        .whisker1.left {
+            top: 25%;
+            left: 10%;
+            transform: rotate(8deg);
+        }
+
+        .whisker2.left {
+            top: 35%;
+            left: 5%;
+            transform: rotate(-2deg);
+        }
+
+        .whisker3.left {
+            top: 45%;
+            left: 8%;
+            transform: rotate(-12deg);
+        }
+
+        .whisker1.right {
+            top: 25%;
+            right: 10%;
+            transform: rotate(-8deg);
+        }
+
+        .whisker2.right {
+            top: 35%;
+            right: 5%;
+            transform: rotate(2deg);
+        }
+
+        .whisker3.right {
+            top: 45%;
+            right: 8%;
+            transform: rotate(12deg);
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 2vmin;
+            padding: 0 4vmin;
+            margin-top: -30vmin;
+            z-index: 2;
+            position: relative;
+            background: white;
+        }
+
 
         .navboxleft_FF8117 {
-            position: absolute;
-            font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
-            font-weight: bold;
-            background-color: #ffe880;
-            width: 140px;
-            float: left;
-            height: 600px
-        }
-
-        .navboxauto_FF8117 {
-            font-family: Arial, Helvetica, Verdana, sans-serif;
-            position: absolute;
-            margin-left: 145px;
-            width: auto;
-            height: auto;
-            padding-left: 5px
-        }
-
-        .navboxauto_FF8118 {
-            font-family: Arial, Helvetica, Verdana, sans-serif;
-            position: absolute;
-            margin-left: 5px;
-            width: auto;
-            height: auto;
-            padding-left: 5px
-        }
-
-        .navcont_FF9149 {
-            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 1vmin;
+            background: #c0c0c0;
+            padding: 1vmin;
         }
 
         .navbox_FF9149 {
-            width: 100%;
-            height: 25px;
-            padding-top: 15px;
-            padding-bottom: 5px;
-            padding-left: 10px;
-            border-bottom-color: #800000;
-            border-bottom-style: ridge;
+            background-color: #C2050F;
+            padding: 1vmin 2vmin;
+            border-radius: 0.5vmin;
         }
-        -->
-    </style>
-    <style>
-        @font-face {
-            font-family: hfont;
-            src: url("./index_files/Monaco.ttf")
-        }
-    </style>
-    <!-- #EndHeadLocked -->
 
+        .navbox_FF9149 a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.8vmin;
+            font-family: 'ROGFont';
+        }
+
+
+        .navboxauto_FF8117 {
+            flex-grow: 1;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="navboxcont_FF8117">
-        <!--agl:cssobject id="FF8117" type="Left Fixed Box" /-->
-        <div align="left" class="navboxleft_FF8117">
-            <div class="navcont_FF9149">
-                <!--agl:cssobject id="FF9149" type="Navi Rows" /-->
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/index.html">
-                        <font face="hfont">Home</font>
-                    </a>
+    <div class="clip-container">
+        <div class="head">
+            <div class="face">
+                <div class="whisker1 left"></div>
+                <div class="whisker2 left"></div>
+                <div class="whisker3 left"></div>
+                <div class="whisker1 right"></div>
+                <div class="whisker2 right"></div>
+                <div class="whisker3 right"></div>
+
+                <div class="eye left">
+                    <div class="pupil left"></div>
                 </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/contact.html">
-                        <font face="hfont">Contact</font>
-                    </a>
+                <div class="eye right">
+                    <div class="pupil right"></div>
                 </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/research.html">
-                        <font face="hfont">Research</font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/publications.php">
-                        <font face="hfont">Publications </font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/blog.html">
-                        <font face="hfont">BLOG </font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/galax.html">
-                        <font face="hfont">Galax </font>
-                    </a>
-                </div>
-                <!--
-						<div class="navbox_FF9149"></div>
-						<div class="navbox_FF9149"></div>
-						-->
+                <div class="nose"></div>
             </div>
         </div>
-        <!-- InstanceBeginEditable name="Content" -->
+    </div>
+
+    <div class="main-content">
+        <div class="navboxleft_FF8117">
+            <div class="navbox_FF9149">
+                <a href="https://doraemon.kaikyo.dev/index.html">
+                    Home
+                </a>
+            </div>
+            <div class="navbox_FF9149">
+                <a href="https://doraemon.kaikyo.dev/contact.html">
+                    Contact
+                </a>
+            </div>
+            <div class="navbox_FF9149">
+                <a href="https://doraemon.kaikyo.dev/research.html">
+                    Research
+                </a>
+            </div>
+            <div class="navbox_FF9149">
+                <a href="https://doraemon.kaikyo.dev/publications.php">
+                    Publications
+                </a>
+            </div>
+            <div class="navbox_FF9149">
+                <a href="https://doraemon.kaikyo.dev/blog.html">
+                    Blog
+                </a>
+            </div>
+            <div class="navbox_FF9149">
+                <a href="https://doraemon.kaikyo.dev/galax.html">
+                    Galax
+                </a>
+            </div>
+        </div>
+
         <div class="navboxauto_FF8117">
-            <div class="padbcont_1D62F10">
-                <!--agl:cssobject id="1D62F10" type="Padded Box" /-->
-                <div class="padbox_1D62F10">
-                    HOU Chengze </div>
-            </div>
-            <hr>
-            <p class=MsoFooter style='margin-left:.5in;text-indent:-.25in'><span style='font-family:hfont'>ADDRESS:<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span><b><span lang=JA style='font-family:"Yu Gothic UI",sans-serif'>〒</span></b><b><span
-                        style='font-family:hfont'>227-8561</span></b><b><span lang=JA
-                        style='font-family:"Yu Gothic UI",sans-serif'>　千葉県柏市柏の葉</span></b><b><span
-                        style='font-family:hfont'>5-1-5
-                    </span></b><b><span lang=JA style='font-family:"Yu Gothic UI",sans-serif'>柏キャンパス</span></b><b><span
-                        lang=JA style='font-family:hfont'> </span></b><b><span lang=JA
-                        style='font-family:"Yu Gothic UI",sans-serif'>基盤棟</span></b><span
-                    style='font-family:hfont'><br>EMAIL:<span
-                        style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span></span><b><span style='font-family:hfont'>h_chengze@nerv.kaikyo.dev</span></b><b><span
-                        style='font-family:hfont'>
-                        <w:PTab Alignment="RIGHT" RelativeTo="MARGIN" Leader="NONE"></w:PTab>
-                    </span></b></p>
-
-            <p class=MsoFooter style='margin-left:.5in;text-indent:-.25in'></p>
-            <!-- InstanceEndEditable -->
             <div class="navboxauto_FF8118">
-
+                <table width="610" border="0" cellspacing="0" cellpadding="10">
+                    <tr>
+                        <td bgcolor="#ece595">
+                            Email Address (Personal): h_chengze@nerv.kaikyo.dev
+                    </tr>
+                </table>
 
             </div>
         </div>
-
-
-
-</body><!-- InstanceEnd -->
+    </div>
+</body>
 
 </html>

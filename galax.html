@@ -1,303 +1,249 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="ja">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="generator" content="Adobe GoLive">
+  <meta charset="UTF-8">
+  <title>どら侯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'ROGFont';
+      src: url('./index_files/ROGFonts-Regular.otf') format('opentype');
+    }
 
-    <title>HOU Chengze Home Page</title>
-    <link href="./index_files/basic.css" type="text/css" rel="stylesheet" media="all">
-    <style type="text/css" media="screen">
-        <!--
-        .padbcont_1D62F10 {
-            width: 100%;
-            height: 100px
-        }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      width: 100vw;
+      overflow-x: hidden;
+      font-family: 'Monaco', monospace;
+    }
 
-        .padbox_1D62F10 {
-            font-size: large;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            background-color: #c4dc69;
-            width: auto;
-            height: auto;
-            padding: 20px
-        }
+    .clip-container {
+      width: 100%;
+      height: 65vmin;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      z-index: 1;
+      padding-left: calc(25vmin + 4vmin);
+      box-sizing: border-box;
+    }
 
-        .padbcont_6F59F66 {
-            width: 100%;
-            height: auto;
-        }
+    .head {
+      position: relative;
+      width: 60vmin;
+      height: 60vmin;
+      background: #00A0E9;
+      border: 0.8vmin solid black;
+      border-radius: 50% / 45%;
+    }
 
-        .padbox_6F59F66 {
-            background-color: #5582fe;
-            width: auto;
-            height: auto;
-            padding: 1px
-        }
+    .face {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48vmin;
+      height: 26vmin;
+      background: white;
+      border-radius: 50% / 45%;
+      border: 0.8vmin solid black;
+    }
 
-        .padbcont_32F624 {
-            width: 100%;
-        }
+    .eye {
+      position: absolute;
+      width: 8vmin;
+      height: 11vmin;
+      background: white;
+      border: 0.6vmin solid black;
+      border-radius: 50%;
+      top: -6vmin;
+      z-index: 2;
+    }
 
-        .padbox_32F624 {
-            width: auto;
-            height: auto;
-            padding: 5px;
-        }
+    .eye.left {
+      left: 50%;
+      transform: translateX(-98%);
+    }
 
-        .padbcont_8F4924 {
-            width: 100%;
-            height: auto;
-        }
+    .eye.right {
+      left: 50%;
+      transform: translateX(-2%);
+    }
 
-        .padbox_8F4924 {
-            width: auto;
-            height: auto;
-            padding: 1px;
-        }
+    .pupil.left,
+    .pupil.right {
+      position: absolute;
+      width: 2vmin;
+      height: 2vmin;
+      background: black;
+      border-radius: 50%;
+      top: 6vmin;
+      z-index: 3;
+    }
 
-        .clearboth {
-            clear: both;
-        }
-        -->
-    </style>
+    .pupil.left {
+      left: 65%;
+      transform: translateX(-50%);
+    }
 
-    <!-- #BeginHeadLocked "" -->
-    <style type="text/css" media="screen">
-        <!--
-        .navboxcont_FF8117 {
-            width: 100%;
-            height: auto;
-            position: absolute
-        }
+    .pupil.right {
+      left: 35%;
+      transform: translateX(-50%);
+    }
 
-        .navboxleft_FF8117 {
-            position: absolute;
-            font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
-            font-weight: bold;
-            background-color: #ffe880;
-            width: 140px;
-            float: left;
-            height: 600px
-        }
+    .nose {
+      position: absolute;
+      width: 5vmin;
+      height: 5vmin;
+      background: red;
+      border-radius: 50%;
+      border: 0.4vmin solid black;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
 
-        .navboxauto_FF8117 {
-            font-family: Arial, Helvetica, Verdana, sans-serif;
-            position: absolute;
-            margin-left: 145px;
-            width: auto;
-            height: auto;
-            padding-left: 5px
-        }
+    .whisker1,
+    .whisker2,
+    .whisker3 {
+      position: absolute;
+      height: 0.5vmin;
+      background: black;
+    }
 
-        .navboxauto_FF8118 {
-            font-family: Arial, Helvetica, Verdana, sans-serif;
-            position: absolute;
-            margin-left: 5px;
-            width: auto;
-            height: auto;
-            padding-left: 5px
-        }
+    .whisker1 { width: 12vmin; }
+    .whisker2 { width: 14vmin; }
+    .whisker3 { width: 13vmin; }
 
-        .navcont_FF9149 {
-            width: 90%;
-        }
+    .whisker1.left { top: 25%; left: 10%; transform: rotate(8deg); }
+    .whisker2.left { top: 35%; left: 5%; transform: rotate(-2deg); }
+    .whisker3.left { top: 45%; left: 8%; transform: rotate(-12deg); }
 
-        .navbox_FF9149 {
-            width: 100%;
-            height: 15px;
-            padding-top: 15px;
-            padding-bottom: 20px;
-            padding-left: 10px;
-            border-bottom-color: #800000;
-            border-bottom-style: ridge;
-        }
-        -->
-    </style>
-    <style>
-        @font-face {
-            font-family: hfont;
-            src: url("./index_files/Monaco.ttf")
-        }
-    </style>
-    <!-- #EndHeadLocked -->
+    .whisker1.right { top: 25%; right: 10%; transform: rotate(-8deg); }
+    .whisker2.right { top: 35%; right: 5%; transform: rotate(2deg); }
+    .whisker3.right { top: 45%; right: 8%; transform: rotate(12deg); }
 
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2vmin;
+      padding: 0 4vmin;
+      margin-top: -30vmin;
+      z-index: 2;
+      position: relative;
+      background: white;
+    }
+
+    .navboxleft_FF8117 {
+      display: flex;
+      flex-direction: column;
+      gap: 1vmin;
+      background: #c0c0c0;
+      padding: 1vmin;
+      font-family: 'ROGFont';
+    }
+
+    .navbox_FF9149 {
+      background-color: #C2050F;
+      padding: 1vmin 2vmin;
+      border-radius: 0.5vmin;
+    }
+
+    .navbox_FF9149 a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.8vmin;
+    }
+
+    .navboxauto_FF8117 {
+      flex-grow: 1;
+    }
+
+    #gallery img {
+      height: auto;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="navboxcont_FF8117">
-        <!--agl:cssobject id="FF8117" type="Left Fixed Box" /-->
-        <div align="left" class="navboxleft_FF8117">
-            <div class="navcont_FF9149">
-                <!--agl:cssobject id="FF9149" type="Navi Rows" /-->
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/index.html">
-                        <font face="hfont">Home</font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/contact.html">
-                        <font face="hfont">Contact</font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/research.html">
-                        <font face="hfont">Research</font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/publications.html">
-                        <font face="hfont">Publications </font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/blog.html">
-                        <font face="hfont">BLOG </font>
-                    </a>
-                </div>
-                <div class="navbox_FF9149">
-                    <a href="https://www.eps.s.computing.ac.cn/galax.html">
-                        <font face="hfont">Galax </font>
-                    </a>
-                </div>
-                <!--
-						<div class="navbox_FF9149"></div>
-						<div class="navbox_FF9149"></div>
-						-->
-            </div>
+  <div class="clip-container">
+    <div class="head">
+      <div class="face">
+        <div class="whisker1 left"></div>
+        <div class="whisker2 left"></div>
+        <div class="whisker3 left"></div>
+        <div class="whisker1 right"></div>
+        <div class="whisker2 right"></div>
+        <div class="whisker3 right"></div>
+
+        <div class="eye left">
+          <div class="pupil left"></div>
         </div>
-        <!-- InstanceBeginEditable name="Content" -->
-        <div class="navboxauto_FF8117">
-            <div class="padbcont_1D62F10">
-                <!--agl:cssobject id="1D62F10" type="Padded Box" /-->
-                <div class="padbox_1D62F10">
-                    HOU Chengze </div>
-            </div>
-            <hr>
+        <div class="eye right">
+          <div class="pupil right"></div>
+        </div>
+        <div class="nose"></div>
+      </div>
+    </div>
+  </div>
 
-            <!-- InstanceEndEditable -->
-            <div class="navboxauto_FF8118">
-                <link rel="stylesheet" type="text/css" href="node_modules/bootstrap3/dist/css/bootstrap.min.css">
-                <link rel="stylesheet"
-                    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                <link rel="stylesheet" type="text/css" href="styles.css">
-                <div class="container">
-                    <div class="row flex">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/My Computer.jpg">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/JAL_4_10.jpg">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/My University.jpg">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/肉超级多的拉面!.jpg">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/先輩.jpg">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/新幹線.jpg">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/銚子電鉄.JPG">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/犬吠埼.JPG">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/非常日本.JPG">
-                            </div>
-                        </div> 
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/由比ヶ浜.JPG">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/new-nerv.JPG">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/サンライズ出雲.JPG">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/スーパー八雲１.JPG">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/スーパー八雲２.JPG">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/スーパー八雲３.JPG">
-                            </div>
-                        </div>     
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/スーパー八雲４.jpg">
-                            </div>
-                        </div> 
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/白老.jpg">
-                            </div>
-                        </div>     
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/ひたちときわ.jpg">
-                            </div>
-                        </div>   
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/鎌倉高校前.jpg">
-                            </div>
-                        </div>   
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/鎌倉高校前２.jpg">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="thumbnail">
-                                <img src="./galaxy/姫路城.jpg">
-                            </div>
-                        </div> 
-                    </div>
+  <div class="main-content">
+    <div class="navboxleft_FF8117">
+      <div class="navbox_FF9149"><a href="#">Home</a></div>
+      <div class="navbox_FF9149"><a href="#">Contact</a></div>
+      <div class="navbox_FF9149"><a href="#">Research</a></div>
+      <div class="navbox_FF9149"><a href="#">Publications</a></div>
+      <div class="navbox_FF9149"><a href="#">Blog</a></div>
+      <div class="navbox_FF9149"><a href="#">Galax</a></div>
+    </div>
 
-                </div>
-            </div>
+    <div class="navboxauto_FF8117">
+      <div id="gallery">
+        <a href="./galaxy/My Computer.jpg"><img src="./galaxy/My Computer.jpg"></a>
+        <a href="./galaxy/JAL_4_10.jpg"><img src="./galaxy/JAL_4_10.jpg"></a>
+        <a href="./galaxy/My University.jpg"><img src="./galaxy/My University.jpg"></a>
+        <a href="./galaxy/肉超级多的拉面!.jpg"><img src="./galaxy/肉超级多的拉面!.jpg"></a>
+        <a href="./galaxy/先輩.jpg"><img src="./galaxy/先輩.jpg"></a>
+        <a href="./galaxy/新幹線.jpg"><img src="./galaxy/新幹線.jpg"></a>
+        <a href="./galaxy/銚子電鉄.JPG"><img src="./galaxy/銚子電鉄.JPG"></a>
+        <a href="./galaxy/犬吠埼.JPG"><img src="./galaxy/犬吠埼.JPG"></a>
+        <a href="./galaxy/非常日本.JPG"><img src="./galaxy/非常日本.JPG"></a>
+        <a href="./galaxy/由比ヶ浜.JPG"><img src="./galaxy/由比ヶ浜.JPG"></a>
+        <a href="./galaxy/new-nerv.JPG"><img src="./galaxy/new-nerv.JPG"></a>
+        <a href="./galaxy/サンライズ出雲.JPG"><img src="./galaxy/サンライズ出雲.JPG"></a>
+        <a href="./galaxy/スーパー八雲１.JPG"><img src="./galaxy/スーパー八雲１.JPG"></a>
+        <a href="./galaxy/スーパー八雲２.JPG"><img src="./galaxy/スーパー八雲２.JPG"></a>
+        <a href="./galaxy/スーパー八雲３.JPG"><img src="./galaxy/スーパー八雲３.JPG"></a>
+        <a href="./galaxy/スーパー八雲４.jpg"><img src="./galaxy/スーパー八雲４.jpg"></a>
+        <a href="./galaxy/白老.jpg"><img src="./galaxy/白老.jpg"></a>
+        <a href="./galaxy/ひたちときわ.jpg"><img src="./galaxy/ひたちときわ.jpg"></a>
+        <a href="./galaxy/鎌倉高校前.jpg"><img src="./galaxy/鎌倉高校前.jpg"></a>
+        <a href="./galaxy/鎌倉高校前２.jpg"><img src="./galaxy/鎌倉高校前２.jpg"></a>
+        <a href="./galaxy/姫路城.jpg"><img src="./galaxy/姫路城.jpg"></a>
+      </div>
+    </div>
+  </div>
 
-
-
-</body><!-- InstanceEnd -->
+  <script>
+    $(document).ready(function () {
+      $('#gallery').justifiedGallery({
+        rowHeight: 180,
+        margins: 5,
+        captions: false,
+        lastRow: 'nojustify'
+      });
+    });
+  </script>
+</body>
 
 </html>
