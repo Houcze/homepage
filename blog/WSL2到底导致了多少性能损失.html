@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>GCC 编译性能测试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #eef1f5;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+    .section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .highlight {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>GCC-9.4.0 编译性能测试</h1>
+
+  <p>笔者进行了一次编译 <span class="highlight">gcc-9.4.0</span> 的测试，执行命令为：</p>
+  <pre>
+./configure --enable-checking=release \
+            --enable-languages=c,c++,fortran \
+            --disable-multilib
+  </pre>
+
+  <p>测试机器为两台，一台为 11th Gen Intel(R) Core(TM) i7-11700K @ 3.60GHz，
+  一台为 Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz。
+  前者 8 核心 16 线程；后者 2 核心 4 线程。
+  两台机器全部开启了超线程。</p>
+
+  <p>编译时间通过 <code>time</code> 命令测量，结果如下：</p>
+
+  <div class="section">
+    <h2>11700K @ WSL Ubuntu（使用 16 线程）</h2>
+    <pre>
+real    424m24.094s
+user    127m1.940s
+sys     263m50.901s
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>11700K @ Windows Docker Desktop（使用 Ubuntu 镜像，16 线程）</h2>
+    <pre>
+real    15m17.838s
+user    127m45.220s
+sys     8m11.774s
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>11700K @ Arch Linux（使用 16 线程）</h2>
+    <pre>
+real    13m40.810s
+user    112m23.351s
+sys     7m44.116s
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>i3-6100 @ CentOS Stream 9（使用 4 线程）</h2>
+    <pre>
+real    48m48.965s
+user    161m31.921s
+sys     11m23.540s
+    </pre>
+  </div>
+
+  <div class="section">
+    <p>所以，在 <span class="highlight">Windows 平台下，Docker Desktop</span> 依然是提供最优性能的选择。</p>
+  </div>
+</body>
+</html>

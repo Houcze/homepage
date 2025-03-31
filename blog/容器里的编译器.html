@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>编译器在容器中的性能对比测试</title>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #eef1f5;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+    .section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .highlight {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>编译器在容器中的性能对比测试</h1>
+  <p>在容器化已愈发普遍的今天，编译器与各种组件部署难度也在不断增大，因此，择优选择容器化是有意义的。</p>
+  <p>笔者的主要使用场景是 HPC，因此主要测试对象为 <span class="highlight">Singularity</span>。
+  测试使用笔者的一个 CUDA 项目，编译器组件为 <span class="highlight">CUDA-12.0.0</span>，使用 <code>time</code> 命令测试性能。</p>
+
+  <div class="section">
+    <h2>1. HOST 主机测试</h2>
+    <pre>
+time make -f t2a_Makefile all
+
+结果：
+real    0m11.611s
+user    0m10.269s
+sys     0m1.196s
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>2. 每次编译文件都伴随一次容器调用（容器开销较大）</h2>
+    <pre>
+time make -f t2_Makefile all
+
+结果：
+real    0m17.397s
+user    0m10.468s
+sys     0m6.312s
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>3. 直接在容器中执行 Makefile（只有一次调用容器开销）</h2>
+    <pre>
+time singularity exec --nv amirh make -f t2a_Makefile all
+
+结果：
+real    0m11.638s
+user    0m9.497s
+sys     0m2.057s
+    </pre>
+  </div>
+
+  <div class="section">
+    <p>方式 <strong>3 与 1 几乎提供了一致的性能</strong>，而且相比于方式 3 的方式只需在 1 上稍作修改，因此迁移也非常方便，使用容器化的编译器确实会提供更多的便利。</p>
+  </div>
+</body>
+</html>
