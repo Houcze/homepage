@@ -217,49 +217,32 @@
     </div>
   </div>
   <script>
-    fetch('./blog/')
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const files = Array.from(doc.querySelectorAll('a'))
-          .map(link => link.getAttribute('href'))
-          .filter(name => name.endsWith('.html'));
+fetch('./blog/list.json')
+  .then(response => response.json())
+  .then(entries => {
+    const blogList = document.getElementById('blog-list');
+    const preparing = document.getElementById('preparing-msg');
+    if (preparing) preparing.remove();
 
-        const blogList = document.getElementById('blog-list');
-        const preparing = document.getElementById('preparing-msg');
+    entries.forEach(entry => {
+      const container = document.createElement('div');
+      container.className = 'blog-entry';
 
-        if (files.length === 0) {
-          preparing.style.display = 'block';
-        } else {
-          if (preparing) preparing.remove();
-          files.forEach(file => {
-            const name = decodeURIComponent(file.replace('.html', ''));
-            const imagePathJpg = `./blog/${name}.jpg`;
-            const imagePathPng = `./blog/${name}.png`;
+      const image = new Image();
+      image.src = `./blog/${entry.image}`;
+      image.onerror = () => {
+        image.src = './index_files/default.png';
+      };
+      container.appendChild(image);
 
-            const container = document.createElement('div');
-            container.className = 'blog-entry';
+      const link = document.createElement('a');
+      link.href = `./blog/${entry.filename}`;
+      link.innerText = entry.title;
+      container.appendChild(link);
 
-            const image = new Image();
-            image.src = imagePathJpg;
-            image.onerror = () => {
-              image.src = imagePathPng;
-              image.onerror = () => {
-                image.src = './index_files/default.png';
-              };
-            };
-            container.appendChild(image);
-
-            const link = document.createElement('a');
-            link.href = `./blog/${file}`;
-            link.innerText = name;
-            container.appendChild(link);
-
-            blogList.appendChild(container);
-          });
-        }
-      });
+      blogList.appendChild(container);
+    });
+  });
   </script>
 </body>
 </html>
