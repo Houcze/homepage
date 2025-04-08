@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <title>どら侯</title>
@@ -11,13 +12,16 @@
       font-weight: normal;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Monaco';
       src: url('./index_files/Monaco.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
-    html, body {
+
+    html,
+    body {
       margin: 0;
       padding: 0;
       background: white;
@@ -25,6 +29,7 @@
       overflow-x: hidden;
       font-family: 'Monaco';
     }
+
     .clip-container {
       width: 100%;
       height: 65vmin;
@@ -36,6 +41,7 @@
       padding-left: calc(25vmin + 4vmin);
       box-sizing: border-box;
     }
+
     .head {
       position: relative;
       width: 60vmin;
@@ -44,6 +50,7 @@
       border: 0.8vmin solid black;
       border-radius: 50% / 45%;
     }
+
     .face {
       position: absolute;
       top: 50%;
@@ -55,6 +62,7 @@
       border-radius: 50% / 45%;
       border: 0.8vmin solid black;
     }
+
     .eye {
       position: absolute;
       width: 8vmin;
@@ -65,15 +73,19 @@
       top: -6vmin;
       z-index: 2;
     }
+
     .eye.left {
       left: 50%;
       transform: translateX(-98%);
     }
+
     .eye.right {
       left: 50%;
       transform: translateX(-2%);
     }
-    .pupil.left, .pupil.right {
+
+    .pupil.left,
+    .pupil.right {
       position: absolute;
       width: 2vmin;
       height: 2vmin;
@@ -82,14 +94,17 @@
       top: 6vmin;
       z-index: 3;
     }
+
     .pupil.left {
       left: 65%;
       transform: translateX(-50%);
     }
+
     .pupil.right {
       left: 35%;
       transform: translateX(-50%);
     }
+
     .nose {
       position: absolute;
       width: 5vmin;
@@ -102,20 +117,63 @@
       transform: translate(-50%, -50%);
       z-index: 3;
     }
-    .whisker1, .whisker2, .whisker3 {
+
+    .whisker1,
+    .whisker2,
+    .whisker3 {
       position: absolute;
       height: 0.5vmin;
       background: black;
     }
-    .whisker1 { width: 12vmin; }
-    .whisker2 { width: 14vmin; }
-    .whisker3 { width: 13vmin; }
-    .whisker1.left { top: 25%; left: 10%; transform: rotate(8deg); }
-    .whisker2.left { top: 35%; left: 5%; transform: rotate(-2deg); }
-    .whisker3.left { top: 45%; left: 8%; transform: rotate(-12deg); }
-    .whisker1.right { top: 25%; right: 10%; transform: rotate(-8deg); }
-    .whisker2.right { top: 35%; right: 5%; transform: rotate(2deg); }
-    .whisker3.right { top: 45%; right: 8%; transform: rotate(12deg); }
+
+    .whisker1 {
+      width: 12vmin;
+    }
+
+    .whisker2 {
+      width: 14vmin;
+    }
+
+    .whisker3 {
+      width: 13vmin;
+    }
+
+    .whisker1.left {
+      top: 25%;
+      left: 10%;
+      transform: rotate(8deg);
+    }
+
+    .whisker2.left {
+      top: 35%;
+      left: 5%;
+      transform: rotate(-2deg);
+    }
+
+    .whisker3.left {
+      top: 45%;
+      left: 8%;
+      transform: rotate(-12deg);
+    }
+
+    .whisker1.right {
+      top: 25%;
+      right: 10%;
+      transform: rotate(-8deg);
+    }
+
+    .whisker2.right {
+      top: 35%;
+      right: 5%;
+      transform: rotate(2deg);
+    }
+
+    .whisker3.right {
+      top: 45%;
+      right: 8%;
+      transform: rotate(12deg);
+    }
+
     .main-content {
       display: flex;
       flex-direction: row;
@@ -127,6 +185,7 @@
       position: relative;
       background: white;
     }
+
     .navboxleft_FF8117 {
       display: flex;
       flex-direction: column;
@@ -134,17 +193,20 @@
       background: #c0c0c0;
       padding: 1vmin;
     }
+
     .navbox_FF9149 {
       background-color: #C2050F;
       padding: 1vmin 2vmin;
       border-radius: 0.5vmin;
     }
+
     .navbox_FF9149 a {
       text-decoration: none;
       color: black;
       font-size: 1.8vmin;
       font-family: 'ROGFont';
     }
+
     .navboxauto_FF8117 {
       flex-grow: 1;
       padding: 2vmin;
@@ -152,12 +214,14 @@
       border-radius: 1vmin;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .navboxauto_FF8118 {
       padding: 2vmin;
       background: #ffffff;
       border-radius: 1vmin;
       box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
     }
+
     .blog-entry {
       display: flex;
       align-items: center;
@@ -167,6 +231,7 @@
       border-radius: 0.5vmin;
       background-color: #f7f7f7;
     }
+
     .blog-entry img {
       width: 80px;
       height: 80px;
@@ -174,6 +239,7 @@
       margin-right: 1.5vmin;
       border-radius: 0.5vmin;
     }
+
     .blog-entry a {
       text-decoration: none;
       color: #333;
@@ -181,6 +247,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="clip-container">
     <div class="head">
@@ -217,32 +284,33 @@
     </div>
   </div>
   <script>
-fetch('./blog/list.json')
-  .then(response => response.json())
-  .then(entries => {
-    const blogList = document.getElementById('blog-list');
-    const preparing = document.getElementById('preparing-msg');
-    if (preparing) preparing.remove();
+    fetch('./blog/list.json')
+      .then(response => response.json())
+      .then(entries => {
+        const blogList = document.getElementById('blog-list');
+        const preparing = document.getElementById('preparing-msg');
+        if (preparing) preparing.remove();
 
-    entries.forEach(entry => {
-      const container = document.createElement('div');
-      container.className = 'blog-entry';
+        entries.forEach(entry => {
+          const container = document.createElement('div');
+          container.className = 'blog-entry';
 
-      const image = new Image();
-      image.src = `./blog/${entry.image}`;
-      image.onerror = () => {
-        image.src = './index_files/default.png';
-      };
-      container.appendChild(image);
+          const image = new Image();
+          image.src = `./blog/${entry.image}`;
+          image.onerror = () => {
+            image.src = './index_files/default.png';
+          };
+          container.appendChild(image);
 
-      const link = document.createElement('a');
-      link.href = `./blog/${entry.filename}`;
-      link.innerText = entry.title;
-      container.appendChild(link);
+          const link = document.createElement('a');
+          link.href = `./blog/${entry.filename}`;
+          link.innerText = entry.title;
+          container.appendChild(link);
 
-      blogList.appendChild(container);
-    });
-  });
+          blogList.appendChild(container);
+        });
+      });
   </script>
 </body>
+
 </html>
